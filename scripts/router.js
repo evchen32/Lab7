@@ -35,4 +35,42 @@ router.setState = function() {
    *    1. You may add as many helper functions in this file as you like
    *    2. You may modify the parameters of setState() as much as you like
    */
+
+  
 }
+
+// Implement changing css to settings
+const settings = document.querySelector('img');
+
+settings.addEventListener('click', event => {
+  //let settings = document.createElement();
+  console.log('clicked settings');
+  document.querySelector('body').className = 'settings';
+  document.querySelector('h1').innerText = 'Settings';
+
+  // Remove single entry before new one
+  document.querySelector('entry-page').remove();
+  let replace = document.createElement('entry-page');
+  document.querySelector('body').appendChild(replace);
+  
+});
+
+
+// Implement changing css when going to home
+const home = document.querySelector('h1');
+
+home.addEventListener('click', event => {
+  //let settings = document.createElement();
+  console.log('clicked home');
+  document.querySelector('body').className = '';
+  document.querySelector('h1').innerText = 'Journal Entries';
+
+   // Remove single entry before new one
+   document.querySelector('entry-page').remove();
+   let replace = document.createElement('entry-page');
+   document.querySelector('body').appendChild(replace);
+});
+
+
+
+

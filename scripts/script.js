@@ -12,6 +12,27 @@ document.addEventListener('DOMContentLoaded', () => {
       entries.forEach(entry => {
         let newPost = document.createElement('journal-entry');
         newPost.entry = entry;
+
+        newPost.shadowRoot.querySelector('article').addEventListener('click', event => {
+          console.log('clicked single entry');
+          document.querySelector('body').className = 'single-entry';
+
+          let num = 1;
+          for(let i = 0; i < entries.length; i++) {
+            if(newPost.entry.title == entry.title) {
+              console.log(newPost.entry.title);
+              console.log(entry.title);
+              console.log(i);
+              num = 10 - i;
+            }
+          }
+          document.querySelector('h1').innerText = 'Entry' + ' ' + num;
+
+          let singleEntry = document.querySelector('entry-page');
+          singleEntry.entry = newPost.entry; 
+          
+        });
+
         document.querySelector('main').appendChild(newPost);
       });
     });
